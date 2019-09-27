@@ -5,9 +5,9 @@
 /* Program specific headers */
 #include "state.h"          // uC data storage
 #include "timer.h"          // Timer functions
-// #include "RGBleds.h"        // Basic wrapper for OctoWS2811 library
 #include "bq769x0CRC.h"
 #include "NonBlockingRtttl.h"  // Used by the buzzer
+#include "buzzerSounds.h"
 #include "Adafruit_NeoPixel.h"
 
 PacketSerial packetSerialOnion;
@@ -43,12 +43,8 @@ uint8_t batteryStatus[4];
 /* Color Sensor Data */
 uint8_t rgbc[8] = {0,0,0,0,0,0,0,0};
 
-/* Test data for Buzzer RTTTL Library */
+/* Buzzer RTTTL Library */
 #define BUZZER_PIN 6
-const char * tetris = "tetris:d=4,o=5,b=100:e6,8b,8c6,8d6,16e6,16d6,8c6,8b,a,8a,8c6,e6,8d6,8c6,b,8b,8c6,d6,e6,c6,a,2a,8p,d6,8f6,a6,8g6,8f6,e6,8e6,8c6,e6,8d6,8c6,b,8b,8c6,d6,e6,c6,a,a";
-const char * mgear = "mgear:d=4,o=5,b=125:8d,16p,16d,2g4,8d,16p,16e,8c#,16p,16c#,a4,8e.,16p,8d,16p,16c#,c,d#4,8d#,16p,16d#,c,1a#4,8g4,16p,16g4,d.,16d,16a#.4,32p,32a#4,32p,32a#4,32p,16c#.,32p,32c#,32p,16c#,a4,e,16d.,32p,32c#,32p,32c#,32p,c,8d#4,32p,32g#4,16p,16d#,32f,32p,32f,32p,32f,32p,16c,16p,16g#.4,1d";
-const char * victory = "ff6_victory:d=4,o=5,b=140:32d6,32p,32d6,32p,32d6,32p,d6,a#,c6,16d6,8p,16c6,2d6";//,a,g,a,16g,16p,c6,16c6,16p,b,16c6,16p,b,16b,16p,a,g,f#,16g,16p,1e,a,g,a,16g,16p,c6,16c6,16p,b,16c6,16p,b,16b,16p,a,g,a,16c6,16p,1d6";
-const char * pause = "d=4,0=5,b=200:16c6,16c#6";
 uint8_t isPaused = 0;
 
 /* NeoPixel Library */
